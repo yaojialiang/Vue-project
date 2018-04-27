@@ -1,0 +1,55 @@
+<template>
+	<div id="newsapp">
+		<div class="search_news">
+			<input type="text" placeholder="搜索">
+			<i class="fa fa-search"></i>
+		</div>
+
+		<ul class="tab_ul">
+			<li v-for="(val,idx) in newsdata" @click="tab(val.type)" v-model="choose">{{val.view}}</li>
+		</ul>
+		<div class="news_area">
+			<div class="mainnew" v-for="(val,idx) in jutidata">
+				<img :src="val.imgurl || 'http://10.3.136.68:8083/img' + val.imgUrl || 'http://10.3.136.68:8083/img' + val.img"/>
+				<ul>
+					<li><span>{{val.title || val.cnname || val.name}}</span></li>
+					<li><p>{{val.from || val.desc || val.achievement}}</p></li>
+					<i class="fa fa-eye"> &nbsp;{{val.see}}</i>
+				</ul>
+			</div>
+		</div>
+		<commonfoot></commonfoot>
+	</div>
+</template>
+<script>
+	import './starnew.scss';
+	import '../../common/base.css';
+	import commonfoot from '../cyfooter/cyfooter.vue';
+	import http from '../../utils/httpClient'
+	export default{
+		data:()=>{
+			return {
+				newsdata:[{type:"cynews",view:"创业新闻"},{type:"matchs",view:"创业大赛"},{type:"master",view:"创业成功人物"},{type:"busistar",view:"校园创业之星"}],
+				jutidata:0,
+				choose:0
+			}
+		},
+		components:{
+			commonfoot
+		},
+		mounted:function(){
+			http.get('getOneList',{type:"cynews"}).then((res)=>{
+				this.jutidata = res.data.data;
+			})
+		},
+		methods:{
+			tab(val){
+				let type = val;
+				http.get('getOneList',{type:type}).then((res)=>{
+					console.log(res)
+					this.jutidata = res.data.data;
+				})
+			}
+		}
+	}
+</script>

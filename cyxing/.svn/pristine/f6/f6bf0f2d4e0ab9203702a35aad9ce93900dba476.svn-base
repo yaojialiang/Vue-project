@@ -1,0 +1,38 @@
+<template>
+    <div id="M-items">
+        <div class="header">
+            <router-link to="/items/source">资料库</router-link>
+            <div class="search"><input type="text" placeholder="创业星"/><i class="el-icon-search"></i></div>
+            <i class="fa fa-pencil-square-o"></i>
+        </div>
+        <div class="nav">nav</div>
+        <div class="main">
+            
+        </div>
+        <cyfooter/>
+        <router-view></router-view>
+    </div>
+</template>
+
+<script type="text/javascript">
+    import './items.scss';
+    import $ from "jquery";
+    import cyfooter from '../cyfooter/cyfooter.vue';
+    import http from '../../utils/httpClient'
+    export default{
+        data(){
+            return{
+                dataset:[]
+            }
+        },
+        components:{
+            cyfooter
+        },
+        methods:{
+            
+        },
+        mounted(){
+            $('.cyfooter ul li').eq(1).addClass('active');
+        }
+    }
+</script>

@@ -1,0 +1,182 @@
+<template>
+    <div id="Lhome">
+        <div class="header">
+            <div class="erweima iconfont icon-iconfontscan">
+            </div>
+            <div class="search">
+                <i class="el-icon-search"></i>
+                <input type="text" class="locate" placeholder="书籍/创业名人/项目" />
+            </div>
+            <div class="msg">
+                <button class="locate">message</button>
+            </div>
+        </div>
+        <div class="main">
+            <div>
+                <h3>创业星</h3>
+                <div class="scl">
+                    <label for="">学校：</label>
+                    <input type="text" />
+                </div>
+            </div>
+            <div class="banner">
+                <cycarousel></cycarousel>
+            </div>
+            <div class="nav">
+                <ul>
+                    <li><i class="iconfont icon-shuji"></i>推荐书籍</li>
+                    <li><i class="iconfont icon-ren"></i>创业名人</li>
+                    <li><i class="iconfont icon-chuangyebanzhuanqian01"></i>创业项目</li>
+                    <li><i class="iconfont icon-chuangjianv"></i>创建项目</li>
+                    <li><i class="iconfont icon-xiaohuoban"></i>我的创友</li>
+
+                </ul>
+            </div>
+            <div class="content">
+                <div class="busiStar">
+                    <h3>校园创业之星</h3>
+                    <ul>
+                        <li v-for="(val,idx) in dataset1">
+                            <img :src="dataset1[idx].headImg" alt="" />
+                            <div>
+                                <span>姓名:{{val.starname}}</span>
+                                <span>性别:{{val.sex}}</span>
+                                <span>学校:{{val.age}}</span>
+                                <span>宣言:{{val.school}}</span>
+                            </div>
+                            <p>{{val.manifesto}}</p>
+                        </li>
+                    </ul>
+                    <p>猛戳查看更多创业之星<i class="fa fa-arrow-circle-o-right"></i></p>
+                </div>
+                <div class="master">
+                    <h3>创业成功人物</h3>
+                    <div>
+                        <img src="http://10.3.136.48:1100/temp/imgs/master/mayun.jpg" alt="" />
+                        <div>
+                            <span>阿里巴巴集团创始人</span>
+                            <span>马云</span>
+                        </div>
+                    </div>
+                    
+                    <ul>
+                        <li v-for="(val,idx) in dataset2">
+                            <img :src="baseUrl+'/'+dataset2[idx].img" alt="" />
+                            <div>
+                                <span>{{val.achievement}}</span>
+                                <span>{{val.name}}</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <p>猛戳查看更多创业之星<i class="fa fa-arrow-circle-o-right"></i></p>
+                </div>
+
+                <div class="master">
+                    <h3>创业成功人物</h3>
+                    <div>
+                        <img src="http://10.3.136.48:1100/temp/imgs/master/mayun.jpg" alt="" />
+                        <div>
+                            <span>阿里巴巴集团创始人</span>
+                            <span>马云</span>
+                        </div>
+                    </div>
+                    
+                    <ul>
+                        <li v-for="(val,idx) in dataset2">
+                            <img :src="baseUrl+'/'+dataset2[idx].img" alt="" />
+                            <div>
+                                <span>{{val.achievement}}</span>
+                                <span>{{val.name}}</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <p>猛戳查看更多创业之星<i class="fa fa-arrow-circle-o-right"></i></p>
+                </div>
+
+
+            </div>
+        </div>
+        <cyfooter></cyfooter>
+        <div class="toTop">
+            
+        </div>
+    </div>
+</template>
+
+<script type="text/javascript">
+    import "./home.scss"
+    import $ from "jquery"
+    import cyfooter from "../cyfooter/cyfooter.vue"
+    import cycarousel from '../carousel/carousel.vue'
+
+    import http from '../../utils/httpClient'
+
+    export default {
+        components:{
+            cyfooter,
+            cycarousel
+        },
+        data(){
+            return {
+                dataset1:[],
+                dataset2:[],
+                dataset3:[],
+                dataset4:[],
+                dataset5:[],
+                dataset6:[],
+                baseUrl:http.base_url
+            }
+        },
+        mounted(){
+            $('.cyfooter ul li').first().addClass('active')
+
+            http.get('getAllList').then((res)=>{
+                
+                this.dataset1 = res.data.data.busiStar.slice(6,10);
+                // console.log(this.dataset1);
+                this.dataset2 = res.data.data.master.slice(3,7);
+                console.log(this.dataset2);
+
+                this.dataset3 = res.data.data.book.slice(0,4);
+
+                this.dataset4 = res.data.data.matchs.slice(0,4);
+
+                this.dataset5 = res.data.data.cynews.slice(0,4);
+
+                this.dataset6 = res.data.data.busiStar.slice(0,4);
+            })
+
+            var toTop = document.getElementsByClassName('toTop')[0];
+            var main = document.getElementsByClassName('main')[0];
+            var scrollTop = main.scrollTop;
+            if(scrollTop>=300){
+                toTop.style.display = 'block';
+            }else{
+                toTop.style.display = 'none';
+            }
+
+
+
+            // 轮播部分
+            var mySwiper = new Swiper('.swiper-container',{
+
+                direction:'horizontal',
+
+                autoplay:2000,
+
+                loop:true,
+
+                pagination:'.swiper-pagination',
+
+                paginationClickable:true,
+
+                nextButton:'.swiper-button-next',
+                prevButton:'.swiper-button-prev',
+
+                autoplayDisableOnInteraction:false,
+
+            })
+
+        }
+    }
+</script>

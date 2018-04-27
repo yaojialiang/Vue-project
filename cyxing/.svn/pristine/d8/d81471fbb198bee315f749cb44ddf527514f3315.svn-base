@@ -1,0 +1,60 @@
+<template>
+    <div id="M-items">
+        <div class="header">header</div>
+        <div class="nav">nav</div>
+        <div class="main">
+            <form id= "uploadForm"> 
+                  <p><label>上传身份证：</label><input type="file" name="studentImg" multiple/></p>
+                  <p><label>上传学生证：</label><input type="file" name="studentImg" multiple/></p>
+                  <input type="button" value="上传" id="btn" @click="uploadfile"/>
+            </form> 
+        </div>
+        <button @click="test">Test</button>
+        <cyfooter/>
+    </div>
+</template>
+
+<script type="text/javascript">
+    import './items.scss';
+    import $ from "jquery";
+    import cyfooter from '../cyfooter/cyfooter.vue';
+    import http from '../../utils/httpClient'
+    export default{
+        data(){
+            return{
+                dataset:[]
+            }
+        },
+        components:{
+            cyfooter
+        },
+        methods:{
+            uploadfile(){
+                 var formData = new FormData($( "#uploadForm" )[0]);  
+                 $.ajax({  
+                      url: 'http://localhost:1010/uploadStudentImg' ,  
+                      type: 'POST',  
+                      data: formData,  
+                      async: false,  
+                      cache: false,  
+                      contentType: false,  
+                      processData: false, 
+                      success: function (res) {  
+                          console.log(res)
+                      }
+                 })
+            },
+            test(){
+                let content = '嘻嘻哈哈不';
+                let userid = 1;
+                let imgs = ["/temp/cfd38a3567e7749c5c8812a2bf80888fchenou.jpg", "/temp/01ae72a493c8ed0e281d4f1e14226e9bdaizhikang.jpg", "/temp/f3ae5c89b3664f0459500dce413ef320guojingming.jpg"];
+                http.post('sendMessage',{content,userid,imgs}).then(res=>{
+                    console.log(res);
+                })
+            }
+        },
+        mounted(){
+            $('.cyfooter ul li').eq(1).addClass('active');
+        }
+    }
+</script>

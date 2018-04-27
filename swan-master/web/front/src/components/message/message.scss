@@ -1,0 +1,129 @@
+body,html{height:100%;}
+.message{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+}
+.message .message-header{
+    height:1.2rem;
+    border-bottom:1px solid #ccc;
+    display:flex;
+    line-height:1.2rem;
+    font-size:0.533333rem;
+}
+.message .message-header li:nth-child(1){
+   color:#0691DC; 
+}
+.message .message-header li:nth-child(2){
+    margin-left:3.4rem;
+    color:#0691DC;
+}
+.message .zhezhao1{
+    height: 0.56rem;
+    background: #EFF3FB;
+}
+.message  .portrait{
+    display:flex;
+    height:2.0rem;
+    border-bottom:1px solid #ccc;
+    justify-content:space-between;
+    line-height:2.0rem;
+    font-size:0.426667rem;
+}
+.message  .portrait li:nth-child(1){
+   margin-left:0.213333rem;
+} 
+.message  .portrait li:nth-child(2){
+   margin-right:0.413333rem;
+   margin-top:0.333333rem;
+} 
+.message  .portrait li img{
+    border-radius:50%;
+    width:1.333333rem;
+}
+.message  .nickname{
+    display:flex;
+    height:1.333333rem;
+    border-bottom:1px solid #ccc;
+    justify-content:space-between;
+    line-height:1.333333rem;
+    font-size:0.426667rem;
+    color:#676666;
+}
+
+.message  .nickname li:nth-child(1){
+   margin-left:0.213333rem; 
+}
+.message  .nickname li:nth-child(2){
+   margin-right:0.413333rem;
+} 
+.message  .gender{
+    display:flex;
+    height:1.333333rem;
+    border-bottom:1px solid #ccc;
+    justify-content:space-between;
+    line-height:1.333333rem;
+    font-size:0.426667rem;
+    color:#676666;
+}
+.message  .gender li:nth-child(1){
+   margin-left:0.213333rem; 
+}
+.message  .gender li:nth-child(2){
+   margin-right:0.413333rem;
+}
+.message  .date{
+    display:flex;
+    height:1.333333rem;
+    border-bottom:1px solid #ccc;
+    justify-content:space-between;
+    line-height:1.333333rem;
+    font-size:0.426667rem;
+    color:#676666;
+}
+.message  .date li:nth-child(1){
+   margin-left:0.213333rem; 
+}
+.message  .date li:nth-child(2){
+   margin-right:0.413333rem;
+}
+.message  .address{
+    display:flex;
+    height:1.333333rem;
+    border-bottom:1px solid #ccc;
+    justify-content:space-between;
+    line-height:1.333333rem;
+    font-size:0.426667rem;
+    color:#676666;
+}
+.message  .address li:nth-child(1){
+   margin-left:0.213333rem; 
+}
+.message  .address li:nth-child(2){
+   margin-right:0.413333rem;
+} 
+.message  .security{
+    display:flex;
+    height:1.333333rem;
+    border-bottom:1px solid #ccc;
+    justify-content:space-between;
+    line-height:1.333333rem;
+    font-size:0.426667rem;
+    color:#676666;
+}
+.message  .security li:nth-child(1){
+   margin-left:0.213333rem; 
+}
+.message  .security li:nth-child(2){
+   margin-right:0.413333rem;
+}
+.message .out{
+    height:1.066667rem;
+    width:5.333333rem;
+    background:#00A1E9;
+    line-height:1.066667rem;
+    text-align:center;
+    color:#fff;
+    margin-left:2.266667rem;
+    margin-top:1.333333rem;
+}

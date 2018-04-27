@@ -1,0 +1,48 @@
+#mask{
+    overflow-x:hidden;
+}
+#adrdel{
+    position:absolute;
+    right:0;
+    top:0;
+    width:80px;
+    height:100%;
+    font-size:12px;
+    &:hover{
+        background:red;
+        color:#fff;
+    }
+}
+#checktb{
+    font-size:16px;
+    .userch{
+        width:80px;
+        height:40px;
+        background:#58bc58;
+        color:#fff;
+        &:hover{
+            background:#999;
+        }
+    }
+  
+}
+#h3{
+    margin-top:50px;
+    text-align:center;
+
+}
+#adrlist{
+    li{
+        padding-right:80px;
+        height:40px;
+        overflow:hidden;
+        position:relative;
+        font-size:14px;
+        border-bottom:1px dashed red;
+        line-height:40px;
+        &:hover{
+            background:#ccc;
+            cursor:pointer;
+        }
+    }
+}

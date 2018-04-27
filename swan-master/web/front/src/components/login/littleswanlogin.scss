@@ -1,0 +1,84 @@
+.box{
+        background-color:#EEF3FA;
+        height:100%;
+        
+        header{
+            width:100%;
+            height:1.173333rem;
+            display:flex;
+            flex-direction:row;
+            justify-content:space-between;
+            border-bottom:2px solid #EEEEEE;
+            .back{
+                background-color:#fff;
+                width:1.333333rem;
+                height:1.173333rem;
+                border-bottom:2px solid #EEEEEE;
+                i{
+                    color:blue;
+                    display:block;
+                    margin:0.266667rem auto;
+                    text-align:center;
+                }
+            }
+            .logintab{
+                flex:1;
+                height:1.173333rem;
+                background-color:#fff;
+                border-bottom:2px solid #EEEEEE;
+                ul{
+                    display:flex;
+                    flex-direction:row;
+                    justify-content:space-around;
+                    li{
+                        height:1.12rem;
+                        span{
+                            display:block;
+                            line-height:1.12rem;
+                            
+                            font-size:0.373333rem;
+                            color:#333333;
+                        }
+                        
+                    }
+                    li:nth-child(1){
+                        span{
+                            border-bottom:2px solid #0092d8;
+                            color: #0093d5;
+                        }
+                    }
+                }
+            }
+            .blank{
+                border-bottom:2px solid #EEEEEE;
+                background-color:#fff;
+                width:1.333333rem;
+                height:1.173333rem;
+            }
+        }
+        
+        .button{
+            padding:0 10px;
+            a{
+                display:block;
+                height:1.146667rem;
+                width:100%;
+                text-align:center;
+                line-height:1.146667rem;
+                font-size:0.373333rem;
+                text-decoration:none;
+            }
+            a:nth-child(1){
+                color:#FFFFFF;
+                background-color:#0086E6;
+                border:1px solid #0086E6;
+                margin-bottom:10px;
+            }
+            a:nth-child(2){
+                color:#0086E6;
+                background-color:#FFFFFF;
+                border:1px solid #0086E6;
+                margin-bottom:0.266667rem;
+            }
+        }
+}

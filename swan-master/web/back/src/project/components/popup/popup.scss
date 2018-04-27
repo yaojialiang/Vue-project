@@ -1,0 +1,31 @@
+#pop{
+    height:100%;
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:9999;
+    background:rgba(0, 0, 0, 0.7);
+    #popmask{
+        position:absolute;
+        width:350px;
+        height:200px;
+        background:#fff;
+        img{
+            margin-left:120px;
+        }
+        h5{
+            text-align:center;
+        }
+        input{
+            width:80px;
+            height:40px;
+            margin-left:60px;
+            margin-top:20px;
+            &:hover{
+                background:#58bc58;
+                color:#fff;
+            }
+        }
+    }
+}

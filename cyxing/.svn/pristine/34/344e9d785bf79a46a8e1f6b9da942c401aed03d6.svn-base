@@ -1,0 +1,28 @@
+【Message（创业圈页）】
+多图上传：uploadcircleImg   请求类型：post   参数：图片
+发表创业圈消息：sendMessage   请求类型：post   参数：{userid,content,imgs}
+获取创业圈消息：getMessage   请求类型：get   参数：{page,limit}(可选，不传默认获取所有)
+点赞功能：callLike   请求类型：post   参数：{id}
+评论功能:sendComment   请求类型：post   参数：{commentText,commentUserid,commentUserNickname,msgid}
+
+【Home(主页)】
+获取单个模块列表：getOneList   请求类型：get   参数：{type,limit,id}(limit和id可选)
+获取所有模块列表：getAllList   请求类型：get   参数：无
+
+【个人中心页（包含注册登录页）】
+注册账户：Mreg    请求类型：post   参数：{username,password}
+用户名是否存在验证: Mlogin    请求类型：post   参数：{username}
+登录: Mlogin    请求类型：post   参数：{username,password}
+获取用户信息：Mgetuser	   请求类型：get   参数：{id}（参数可选，没有默认获取所有）
+获取聊天窗口：Mgetchat	 请求类型：get   参数：无
+修改头像接口：Muploadhead     请求类型：post   参数：头像
+修改个人信息并保存：MchangeMsg    请求类型：post   参数：{username,nickname,sex,locate,email,wechat,manifesto,headImg,id}
+修改密码：vPsss    请求类型：post   参数：{id,password,newpass}
+上传身份证和学生证照片：uploadStudentImg     请求类型：post   参数：files
+学生身份认证(填写真实姓名和所在学校):identifyID    请求类型：post   参数：{fullname,school,id}
+
+【通讯录&聊天】
+获取通讯录：getAddresslist   请求类型：get   参数：{userid}
+添加创友：addFriend    请求类型：post   参数：{friendid,userid}
+获取聊天信息：getChatMsg     请求类型：get   参数：{speakerid,listenerid}
+添加聊天信息（聊天发送消息）：sendChatMsg  请求类型：post   参数：{speakerid,listenerid,content}

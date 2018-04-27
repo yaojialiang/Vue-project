@@ -1,0 +1,63 @@
+<template>
+    <div id="Msource">
+        <div class="header">
+            <i class="fa fa-reply" @click="goToBack"></i>
+            <h4>资料库</h4>
+            <i class="fa fa-upload "></i>
+        </div>
+        <div class="search">
+            <div class="locate"><i class="el-icon-search"></i><input type="search" placeholder="搜索创业资料"/></div>
+        </div>
+        <div class="main">
+            <ul>
+                <li v-for="(val,idx) in dataset" :data-type="val.type" :key="idx">
+                    <p><router-link :to="'/items/source/detail/'+val.id">{{val.title}}</router-link></p>
+                    <p><span>作者：{{val.author}}</span><span>来源：{{val.origin}}</span><span><i class="fa fa-eye"></i> {{val.clickqty}}</span></p>
+                </li>
+            </ul>
+            <p class="hint">加载更多...</p>
+        </div>
+        <router-view></router-view>
+    </div>
+</template>
+
+<script type="text/javascript">
+    import './source.scss'
+    import http from '../../../utils/httpClient'
+    import $ from 'jquery'
+    export default{
+        data(){
+            return{
+                dataset:[],
+                page:1
+            }
+        },
+        methods:{
+            goToBack(){
+                history.go(-1);
+            },
+            loadDate(){
+                http.get('getSource',{page:this.page,limit:10}).then(res=>{
+                    this.$store.state.app.index_show=false;
+                    this.dataset=res.data.data;
+                })
+            }
+        },
+        mounted(){
+            this.$store.state.app.index_show=true;
+            this.loadDate();
+            var vm = this;
+            $('#Msource .main').scroll(function(){
+                var mainH=$(this).outerHeight();
+                var ulH=$(this).find('ul').outerHeight();
+                var scrollH=$(this).scrollTop();
+                var page=1;
+                if(scrollH>=ulH-mainH){
+                    vm.page++;
+                    vm.$store.state.app.index_show=true;
+                    vm.loadDate();
+                }
+            })
+        }
+    }
+</script>

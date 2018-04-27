@@ -1,0 +1,48 @@
+import Vue from "vue"
+import VueRouter from "vue-router"
+
+Vue.use(VueRouter)
+
+import homeComponent from "../components/home/home.vue"
+
+// Marco添加
+import itemsComponent from '../components/items/items.vue'
+import sourceComponent from '../components/items/source/source.vue'
+import sourceDetail from '../components/items/source/sourceDetail/sourceDetail.vue'
+import itemPublishComponent from '../components/items/itemPublish/itemPublish.vue'
+//光源add
+import MineComponent from '../components/mine/mine.vue'
+import PersonComponent from '../components/mine/person/person.vue'
+import LoginComponent from '../components/login/login.vue'
+import RegisterComponent from '../components/register/register.vue'
+import SetComponent from '../components/mine/set/set.vue'
+
+
+//zfc添加
+import starnewsComponent from '../components/starnews/starnew.vue'
+
+//gu
+import circleComponent from "../components/circle/circle.vue";
+import releaseComponent from "../components/circle/release/release.vue";
+
+const router = new VueRouter({
+    routes:[
+        {path:"/",name:"home",component:homeComponent},
+     	{path:"/news",name:"news",component:starnewsComponent},
+        {path:"/circle",name:"circle",component:circleComponent},
+        {path:"/releas",name:"releas",component:releaseComponent},
+        {path:"/items",name:"items",component:itemsComponent,children:[
+            {path:"/items/source",name:"source",component:sourceComponent,children:[
+                {path:"/items/source/detail/:id",name:'sourceDetail',component:sourceDetail}
+            ]}
+        ]},
+        {path:"/itempublish",name:"itempublish",component:itemPublishComponent},
+        {path:"/mine",name:"mine",component:MineComponent},
+        {path:"/person",name:"person",component:PersonComponent},
+        {path:"/login",name:"login",component:LoginComponent},
+        {path:"/register",name:"register",component:RegisterComponent},
+        {path:"/set",name:"set",component:SetComponent}
+    ]
+})
+
+export default router;

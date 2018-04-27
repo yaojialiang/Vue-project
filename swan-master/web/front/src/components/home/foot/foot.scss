@@ -1,0 +1,15 @@
+.footer ul{
+    display:flex;
+    height: 1.28rem;
+    font-size:0.373333rem;
+}
+.footer ul li{
+   display:flex;
+   flex:1;
+   text-align:center; 
+   flex-direction:column;
+   justify-content:center;
+}
+.footer ul li i{
+    font-size:0.64rem;
+}

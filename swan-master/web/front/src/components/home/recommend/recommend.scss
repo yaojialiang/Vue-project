@@ -1,0 +1,45 @@
+#main .recommend-top{
+    height:0.88rem;
+    border-top:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+}
+#main .recommend-top h3{
+    height:0.88rem;
+    font-size:0.32rem;
+    color:#656566;
+    line-height:0.88rem;
+    padding-left:3.866667rem;
+}
+#main .recommend-c ul{
+    display:flex;
+    flex-wrap:wrap;
+}
+#main .recommend-c ul li {
+    height:7.466667rem;
+    width: 50%;
+    border:1px solid #ccc;
+}
+#main .recommend-c ul li p{
+    font-size:0.373333rem;
+}
+#main .recommend-c ul li .desc{
+    padding-left:0.64rem;
+}
+#main .recommend-c ul li .name{
+    margin-top:0.133333rem;
+    width:4.266667rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-left:0.64rem;
+    color:#A29FA2;
+}
+#main .recommend-c ul li .price{
+    padding-left:0.533333rem;
+    color:#FF6600;
+    margin-top:0.32rem;
+}
+#main .recommend-c ul li img{
+    height: 4.8rem;
+    width: 4.8rem;
+}

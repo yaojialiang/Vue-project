@@ -1,0 +1,11 @@
+var db = require('../db');
+var apiResult = require('../utils/apiResult');
+const jwt = require('jsonwebtoken');
+const crypto = require('crypto');
+const filter = require('../utils/filter');
+
+module.exports={
+    reg(app){
+        
+    }
+}

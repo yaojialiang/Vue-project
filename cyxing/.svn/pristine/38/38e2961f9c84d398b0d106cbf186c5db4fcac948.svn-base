@@ -1,0 +1,55 @@
+<template>
+    <div id="M-items">
+        <div class="header">header</div>
+        <div class="nav">nav</div>
+        <div class="main">
+            <form id= "uploadForm"> 
+                  <p>上传文件： <input type="file" name="head" multiple/></p>  
+                  <input type="button" value="上传" id="btn" @click="uploadfile"/>  
+            </form> 
+        </div>
+        <ul>
+            <li v-for="val in dataset">
+                <img :src="'http:localhost:1010/'+val"/>
+            </li>
+        </ul>
+        <cyfooter/>
+    </div>
+</template>
+
+<script type="text/javascript">
+    import './items.scss';
+    import $ from "jquery";
+    import cyfooter from '../cyfooter/cyfooter.vue';
+    export default{
+        data(){
+            return{
+                dataset:[]
+            }
+        },
+        components:{
+            cyfooter
+        },
+        methods:{
+            uploadfile(){
+                 var formData = new FormData($( "#uploadForm" )[0]);  
+                 $.ajax({  
+                      url: 'http://localhost:1010/uploadcircleImg' ,  
+                      type: 'POST',  
+                      data: formData,  
+                      async: false,  
+                      cache: false,  
+                      contentType: false,  
+                      processData: false, 
+                      success: function (res) {  
+                          this.dataset=res.data;
+                          console.log(this.dataset)
+                      }
+                 })
+            }
+        },
+        mounted(){
+            $('.cyfooter ul li').eq(1).addClass('active');
+        }
+    }
+</script>

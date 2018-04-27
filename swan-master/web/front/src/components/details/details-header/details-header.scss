@@ -1,0 +1,22 @@
+.details-header{
+    height:1.333333rem;
+    display:flex;
+    justify-content:space-between;
+    line-height:1.333333rem;
+    border-bottom:1px solid #ccc;
+}
+.details-header li:nth-child(1){
+    font-size:0.8rem;
+    color:#0093D9;
+}
+.details-header li:nth-child(2){
+    font-size:0.426667rem;
+    color:#323131;
+}
+.details-header li:nth-child(3){
+    color:#0093D9;
+    padding-right:0.16rem;
+}
+.details-header li span{
+    margin-right:0.426667rem;
+}

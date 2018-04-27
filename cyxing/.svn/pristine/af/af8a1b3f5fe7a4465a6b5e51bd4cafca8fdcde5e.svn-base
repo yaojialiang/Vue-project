@@ -1,0 +1,269 @@
+<template>
+    <div id="Lhome">
+        <div class="header">
+            <div class="erweima iconfont icon-iconfontscan">
+            </div>
+            <div class="search">
+                <i class="el-icon-search"></i>
+                <input type="text" class="locate" placeholder="书籍/创业名人/项目" />
+            </div>
+            <div class="msg iconfont icon-xiazai16">
+                
+            </div>
+        </div>
+        <div class="main">
+            <div>
+                <h3>创业星</h3>
+                <div class="scl">
+                    <span>学校：</span>
+                    <span>{{sch}}</span>
+                    <div v-if="showInf"><router-link to="/person">去完善</router-link></div>
+
+                </div>
+            </div>
+            <div class="banner">
+                <cycarousel></cycarousel>
+            </div>
+            <div class="nav">
+                <ul>
+                    <li><i class="iconfont icon-shuji"></i>推荐书籍</li>
+                    <li><i class="iconfont icon-ren"></i>创业名人</li>
+                    <li><i class="iconfont icon-chuangyebanzhuanqian01"></i>创业项目</li>
+                    <li><i class="iconfont icon-chuangjianv"></i>创建项目</li>
+                    <li><i class="iconfont icon-xiaohuoban"></i>我的创友</li>
+
+                </ul>
+            </div>
+            <div class="content">
+                <div class="busiStar">
+                    <h3>校园创业之星</h3>
+                    <ul>
+                        <li v-for="(val,idx) in dataset1">
+                            <img :src="dataset1[idx].headImg" alt="" />
+                            <div>
+                                <span>姓名:{{val.starname}}</span>
+                                <span>性别:{{val.sex}}</span>
+                                <span>学校:{{val.age}}</span>
+                                <span>宣言:{{val.school}}</span>
+                            </div>
+                            <p>{{val.manifesto}}</p>
+                        </li>
+                    </ul>
+                    <p>猛戳查看更多创业之星<i class="fa fa-arrow-circle-o-right"></i></p>
+                </div>
+                <div class="master">
+                    <h3>创业成功人物</h3>
+                    <div>
+                        <img src="http://10.3.136.48:1100/temp/imgs/master/mayun.jpg" alt="" />
+                        <div>
+                            <span>阿里巴巴集团创始人</span>
+                            <span>马云</span>
+                        </div>
+                    </div>
+                    
+                    <ul>
+                        <li v-for="(val,idx) in dataset2">
+                            <img :src="baseUrl+'/'+dataset2[idx].img" alt="" />
+                            <div>
+                                <span>{{val.achievement}}</span>
+                                <span>{{val.name}}</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <p>猛戳查看更多成功人物<i class="fa fa-arrow-circle-o-right"></i></p>
+                </div>
+
+                <div class="book">
+                    <h3>推荐书籍</h3>
+                    <ul>
+                        <li v-for="(val,idx) in dataset3" class="bli">
+                            <img :src="baseUrl+'/'+dataset3[idx].img" alt="" />
+                            <div>
+                                <span class="bname">{{val.name}}</span>
+                                <span class="bwriter" style="">{{val.writer}}</span>
+                                <p>¥{{val.price}}</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <p>猛戳查看创业书籍<i class="fa fa-arrow-circle-o-right"></i></p>
+                </div>
+                <div class="matchs">
+                    <h3>创业大赛</h3>
+                    <ul>
+                        <li v-for="(val,idx) in dataset4">
+                            <img :src="baseUrl+val.imgUrl"></img>
+                            <div>
+                                <p>
+                                    <span>比赛名称：</span>
+                                    <span>{{val.cnname}}</span>
+                                </p>
+                                <p>
+                                    <span>举办单位：</span>
+                                    <span>{{val.hold_unit}}</span>
+                                </p>
+                                <h3>点击查看详情</h3>
+                            </div>
+
+                        </li>
+                    </ul>
+                </div>
+                <div class="cynews">
+                    <h3>创业新闻</h3>
+                    <ul>
+                        <li v-for="(val,idx) in dataset5">
+                            <h4>{{val.title}}</h4>
+                            <div>
+                                <p>{{val.timestape}}</p>
+                                <p>{{val.from}}</p>
+                            </div>
+                            <h3>点击查看详情</h3>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <cyfooter></cyfooter>
+        <div class="toTop iconfont icon-arrow-top" @click="top">
+            
+        </div>
+    </div>
+</template>
+
+<script type="text/javascript">
+    import "./home.scss"
+    import $ from "jquery"
+    import cyfooter from "../cyfooter/cyfooter.vue"
+    import cycarousel from '../carousel/carousel.vue'
+
+    import http from '../../utils/httpClient'
+
+    export default {
+        components:{
+            cyfooter,
+            cycarousel
+        },
+        data(){
+            return {
+                dataset1:[],
+                dataset2:[],
+                dataset3:[],
+                dataset4:[],
+                dataset5:[],
+                dataset6:[],
+                baseUrl:http.base_url,
+
+                sch:'',
+                showInf:false,
+
+            }
+        },
+        mounted(){
+            $('.cyfooter ul li').first().addClass('active')
+
+            http.get('getAllList').then((res)=>{
+                console.log(res);
+                this.dataset1 = res.data.data.busiStar.slice(6,10);
+                // console.log(this.dataset1);
+                this.dataset2 = res.data.data.master.slice(3,7);
+                console.log(this.dataset2);
+
+                this.dataset3 = res.data.data.book.slice(0,4);
+                console.log(this.dataset3);
+                this.dataset4 = res.data.data.matchs.slice(0,3);
+
+                this.dataset5 = res.data.data.cynews.slice(0,4);
+
+                // this.dataset6 = res.data.data.project.slice(0,4);
+            })
+
+
+
+            var toTop = document.getElementsByClassName('toTop')[0];
+            var main = document.getElementsByClassName('main')[0];
+
+            main.onscroll = function(){
+                var scrollTop = main.scrollTop;
+                // console.log(scrollTop);
+                if(scrollTop>1000){
+                    toTop.style.display = 'block';
+                }else{
+                    toTop.style.display = 'none';
+                }
+
+                toTop.onclick = function(){
+                    // console.log(666);
+                    var timer = setInterval(function(){
+                    // 滚动过的距离越大，返回越快
+                        var scrollTop = main.scrollTop;
+
+                        // 计算速度
+                        var speed = Math.floor(scrollTop/10);
+
+
+                        if(scrollTop<=10 || speed === 0){
+                            clearInterval(timer);
+                        }
+                        main.scrollBy(0,-speed);
+                    },15);
+                }
+            }
+            
+            
+
+
+            let id = window.sessionStorage.getItem('userID');
+            if(!id) this.sch="您尚未登录！";
+            http.get('Mgetuser',{id}).then((res)=>{
+                let userDataset = res.data.data[0];
+                if(!userDataset.school){
+                    this.sch = '您还未完善学校信息';
+                    this.showInf = true;
+                }else{
+                    this.sch = userDataset.school;
+                    this.showInf = true;
+                }
+            })
+            // 轮播部分
+            var mySwiper = new Swiper('.swiper-container',{
+
+                direction:'horizontal',
+
+                autoplay:2000,
+
+                loop:true,
+
+                pagination:'.swiper-pagination',
+
+                paginationClickable:true,
+
+                nextButton:'.swiper-button-next',
+                prevButton:'.swiper-button-prev',
+
+                autoplayDisableOnInteraction:false,
+
+            })
+
+        },
+
+        methods:{
+            // Top(){
+            //     var timer = setInterval(function(){
+            //         // 滚动过的距离越大，返回越快
+            //         var scrollTop = window.scrollY;
+
+            //         // 计算速度
+            //         var speed = Math.floor(scrollTop/10);
+
+
+            //         if(scrollTop<=10 || speed === 0){
+            //             clearInterval(timer);
+            //         }
+            //         window.scrollBy(0,-speed);
+            //     },30);
+            // }
+            top:function(){
+
+            }
+        }
+    }
+</script>

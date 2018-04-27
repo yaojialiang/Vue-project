@@ -1,0 +1,175 @@
+.box{
+        background-color:#EEF3FA;
+        height:100%;
+        
+        >header{
+            width:100%;
+            height:1.173333rem;
+            display:flex;
+            flex-direction:row;
+            justify-content:space-between;
+            border-bottom:2px solid #EEEEEE;
+            margin-bottom:0.266667rem;
+            >.back{
+                background-color:#fff;
+                width:1.333333rem;
+                height:1.173333rem;
+                border-bottom:2px solid #EEEEEE;
+                >i{
+                    color:blue;
+                    display:block;
+                    margin:0.266667rem auto;
+                    text-align:center;
+                }
+            }
+            >.logintab{
+                flex:1;
+                height:1.173333rem;
+                background-color:#fff;
+                border-bottom:2px solid #EEEEEE;
+                >h1{
+                    margin:0;
+                    height:1.173333rem;
+                    line-height:1.173333rem;
+                    text-align:center;
+                    font-size:0.48rem;
+                    color:#0093D5;
+                }
+            }
+            >.blank{
+                border-bottom:2px solid #EEEEEE;
+                background-color:#fff;
+                width:1.333333rem;
+                height:1.066667rem;
+            }
+        }
+    
+        >.inputmsg2{
+            background-color:#fff;
+            position:relative;
+            margin-bottom:0.266667rem;
+            >.username2{
+                display:flex;
+                flex-direction:row;
+                padding-left:0.4rem;
+                border-bottom:1px solid #EEEEEE;
+                >.content{
+                    // width:85%;
+                    padding:0.346667rem 0.533333rem 0.346667rem 0;
+                    
+                    >input{
+                        font-size:0.453333rem;
+                        height:0.453333rem;
+                        border:0 none;
+                        outline:none;
+                    }
+                }
+            }
+            >.password2{
+                display:flex;
+                flex-direction:row;
+                padding-left:0.4rem;
+                display:flex;
+                flex-direction:row;
+
+                >.content{
+                    // width:85%;
+                    flex:1;
+                    padding:0.346667rem 0.533333rem 0.346667rem 0;
+                    >input{
+                        font-size:0.453333rem;
+                        height:0.453333rem;
+                        border:0 none;
+                        outline:none;
+                    }
+                }
+                >.getverify{
+
+                    border-left:1px solid #EEEEEE; 
+                    font-size:0.373333rem;
+                    width:3.52rem;
+                    line-height:1.6rem;
+                    text-align:center;
+                    >a{
+                        color:#0093D5;
+                        text-decoration:none;
+                    }
+                }
+            }
+            
+        }
+
+        >.inputmsg{
+            background-color:#fff;
+            position:relative;
+            margin-bottom:0.666667rem;
+            >.username{
+                display:flex;
+                flex-direction:row;
+                
+                >.blank{
+                    width:10%;
+                    height:0.48rem;
+                }
+                >.content{
+                    width:90%;
+                    padding:0.346667rem 0.533333rem 0.346667rem 0;
+                    border-bottom:1px solid #EEEEEE;
+                    >input{
+                        font-size:0.453333rem;
+                        height:0.453333rem;
+                        border:0 none;
+                        outline:none;
+                    }
+                }
+            }
+            >.password{
+                display:flex;
+                flex-direction:row;
+                
+                >.blank{
+                    width:6%;
+                    height:1.28rem;
+                }
+                >.content{
+                    width:90%;
+                    padding:0.346667rem 0.533333rem 0.346667rem 0;
+                    >input{
+                        font-size:0.453333rem;
+                        height:0.453333rem;
+                        border:0 none;
+                        outline:none;
+                    }
+                }
+            }
+            >.passwordzucheng{
+                color:#B1BBD6;
+                font-size:0.32rem;
+                position:absolute;
+                
+                left:0.266667rem;
+            }
+        }
+        >.tip{
+            font-size:0.373333rem;
+            color:red;
+            margin-left:0.4rem;
+        }
+        >.registerbtn{
+            padding:0 0.266667rem;
+            >a{
+                display:block;
+                height:1.146667rem;
+                width:100%;
+                text-align:center;
+                line-height:1.146667rem;
+                font-size:0.373333rem;
+                text-decoration:none;
+                color:#FFFFFF;
+                background-color:#0086E6;
+                border:1px solid #0086E6;
+                margin-bottom:0.266667rem;
+            }
+            
+        }
+}

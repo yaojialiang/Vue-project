@@ -1,0 +1,58 @@
+.inputmsg{
+    background-color:#fff;
+    position:relative;
+    margin-bottom:0.8rem;
+    .username2{
+        display:flex;
+        flex-direction:row;
+        padding-left:0.4rem;
+        border-bottom:1px solid #EEEEEE;
+        .content{
+            // width:85%;
+            padding:0.346667rem 0.533333rem 0.346667rem 0;
+            
+            input{
+                font-size:0.453333rem;
+                height:0.453333rem;
+                border:0 none;
+            }
+        }
+    }
+    .password{
+        display:flex;
+        flex-direction:row;
+        padding-left:0.4rem;
+        display:flex;
+        flex-direction:row;
+
+        .content{
+            // width:85%;
+            flex:1;
+            padding:0.346667rem 0.533333rem 0.346667rem 0;
+            input{
+                font-size:0.453333rem;
+                height:0.453333rem;
+                border:0 none;
+            }
+        }
+        .getverify{
+
+            border-left:1px solid #EEEEEE; 
+            font-size:0.373333rem;
+            width:3.52rem;
+            line-height:1.6rem;
+            text-align:center;
+            a{
+                color:#0093D5;
+                text-decoration:none;
+            }
+        }
+    }
+    .findpassword{
+        color:#B1BBD6;
+        font-size:0.373333rem;
+        position:absolute;
+        top:3.36rem;
+        right:0.266667rem;
+    }
+}

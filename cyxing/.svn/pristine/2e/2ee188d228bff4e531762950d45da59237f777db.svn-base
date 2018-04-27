@@ -1,0 +1,81 @@
+#newsapp{
+  display:flex;flex-direction: column;height:100%;flex-direction: column;width: 100%;
+}
+.search_news{
+	height: 10%;
+	text-align: center;
+	background: skyblue;
+	input{
+		width: 70%;
+		height: 0.8rem;
+		padding: 0.1rem 0 0 1rem;
+		border:0px solid black;
+		font-size: 0.4rem;
+		border-radius:0.2rem;
+		position: relative;
+	}
+	i{
+		font-size: 0.4rem;
+		position: absolute;
+		left:1.8rem;
+		top:0.6rem;
+		color:#ccc;
+		font-weight: normal;
+	}
+}
+.tab_ul{
+	height: 1.1rem;background: white;overflow-x: scroll;border-bottom: 0.02rem solid black;
+	-webkit-overflow-scrolling:touch;float: left;display: -webkit-box;text-align: center;
+	.active{
+		border-bottom: 1px solid black;padding:0 0.1rem;
+	}
+	li{
+		width: 3.4rem;font-size: 0.363576rem;line-height: 1rem;
+	}	
+}
+.news_area{
+	margin-top:0.5rem;height: 80%;font-size: 0.35rem;
+	width: 100%;
+    flex: 1;
+    overflow-x: auto;
+	.mainnew{
+		height: 2.3rem;
+		margin-bottom: 0.5rem;
+		position: relative;
+		border-bottom: 1px solid black;
+		img{
+			background: blue;
+			width: 1.6rem;
+			height: 1.6rem;
+			position: absolute;
+			left:0.35rem;
+			top:0.15rem;
+		}
+		i{
+			position: absolute;
+			right:1rem;
+			bottom:0.25rem;
+			font-size: 0.33rem;
+
+		}
+	}
+	ul{
+			margin-left: 2.5rem;
+			margin-top:0.1rem;
+			li{
+				span{
+					padding-top: 0.12rem;
+					font-size: 0.46rem;
+					white-space:nowrap;text-overflow:ellipsis;overflow:hidden;width:7rem;
+				}
+				p{
+					margin-top: 0.2rem;
+				 	width: 5.3rem;  /*必须设置宽度*/
+				    overflow: hidden;  /*溢出隐藏*/
+				    text-overflow: ellipsis; /*以省略号...显示*/
+				    white-space: nowrap;  /*强制不换行*/
+				    font-size: 0.3rem;
+				}
+			}
+		}
+}

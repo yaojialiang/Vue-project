@@ -1,0 +1,11 @@
+1.获取省份列表： 
+http://119.29.166.254:9090/api/provinces 
+返回的是省份列表，其中id很重要。 
+2.通过省份id查询省份城市： 
+http://119.29.166.254:9090/api/province/getCitiesByProvinceId?id=省份id 
+3.通过省份id查询大学： 
+http://119.29.166.254:9090/api/university/getUniversityByProvinceId?id=省份id 
+4.通过城市名称查询大学： 
+http://119.29.166.254:9090/api/university/getUniversityByCityName?name=城市名称 
+5.通过大学名称查找大学： 
+http://119.29.166.254:9090/api/university/getByUniversityName?name=大学名称

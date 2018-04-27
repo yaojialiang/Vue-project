@@ -1,0 +1,89 @@
+body,html{height:100%;}
+.search{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+}
+.search .search-header{
+    display:flex;
+    height:1.226667rem;
+    justify-content:space-between;
+    line-height:1.226667rem;
+    border-bottom:1px solid #ccc;
+}
+.search .search-header li:nth-child(1){
+    font-size:0.533333rem;
+    height:0.733333rem;
+    color:#119AD9;
+}
+.search .search-header li input{    
+  width:7.2rem;
+  height:0.693333rem;
+  border:1px solid #ccc;
+  font-size:0.38rem;
+  border-radius:0.306667rem;
+  background:#EFEFEF;
+}
+
+.search .search-header li button{
+    width:1.003333rem;
+    height:0.693333rem;
+    background:#38B5EB;
+    color:#fff;
+    font-size:0.326667rem;
+    line-height:0.693333rem;
+    text-align:center;
+    margin-right:0.133333rem;
+    border-radius:0.08rem;
+}
+.searchMain{
+    flex:1;
+    overflow-x:hidden;
+}
+.zhezhao1{
+    height:0.266667rem;
+    background: #EFEFEF;
+}
+.searchMain .hot{
+    height:1.173333rem;
+    border-bottom:1px solid #ccc;
+}
+.searchMain .hot h3{
+    line-height:1.173333rem;
+    color:#999999;
+    margin-left:0.266667rem;
+}
+
+.searchMain .hotList li{
+    display:flex;
+    height:3.706667rem;
+    border-bottom:1px solid #ccc;
+}
+.searchMain .hotList li img{
+    width:3.2rem
+}
+.searchMain .hotList li .remai{
+    height:0.533333rem;
+    width:1.626667rem;
+    background: #f90;
+    color:#fff;
+    font-size:0.373333rem;
+    text-align:center;
+}
+.searchMain .hotList li .title{
+    font-size:0.373333rem;
+}
+.searchMain .hotList li .price{
+    color:#FF6600;
+    margin-top:0.266667rem;
+    font-size:0.533333rem;
+}
+.searchMain .hotList li .model{
+    margin-top:0.133333rem;
+    width:6.266667rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom:0.213333rem;
+    color:#999999;
+}

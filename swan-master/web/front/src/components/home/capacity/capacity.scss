@@ -1,0 +1,40 @@
+#main .capacity-top h3{
+    height:0.88rem;
+    font-size:0.32rem;
+    color:#656566;
+    line-height:0.88rem;
+    padding-left:4.4rem;
+}
+#main .capacity-c ul{
+    display:flex;
+    flex-wrap:wrap;
+}
+#main .capacity-c ul li {
+    height:7.466667rem;
+    width: 50%;
+    border:1px solid #ccc;
+}
+#main .capacity-c ul li p{
+    font-size:0.373333rem;
+}
+#main .capacity-c ul li .desc{
+    padding-left:0.64rem;
+}
+#main .capacity-c ul li .name{
+    margin-top:0.133333rem;
+    width:4.266667rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-left:0.64rem;
+    color:#A29FA2;
+}
+#main .capacity-c ul li .price{
+    padding-left:0.533333rem;
+    color:#FF6600;
+    margin-top:0.32rem;
+}
+#main .capacity-c ul li img{
+    height: 4.8rem;
+    width: 4.8rem;
+}

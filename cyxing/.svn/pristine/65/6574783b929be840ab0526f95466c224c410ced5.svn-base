@@ -1,0 +1,63 @@
+<template>
+    <div id="T-mine">
+        <div class="T-header">
+            <h3>个人中心<a href="#">设置</a></h3>
+        </div>
+        <div class="T-main">
+            <ul>
+                <li class="T-headPhoto">
+                    <router-link to="/person">
+                        <img :src="baseUrl+'/'+this.uimg" />
+                        <p>{{this.uname}}</p>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </router-link>
+                </li>
+                <li class="T-li"><router-link to="/person">我的主页<i class="fa fa-user-circle"></i></router-link></li>
+                <li class="T-li"><router-link to="/person">我的创友<i class="fa fa-address-book-o"></i></router-link></li>
+                <li class="T-li"><router-link to="/person">项目收藏<i class="fa fa-star-o"></i></router-link></li>
+                <li class="T-li"><router-link to="/person">我的项目<i class="fa fa-folder-o"></i></router-link></li>
+                <li class="T-li"><router-link to="/person">分享APP<i class="fa fa-paper-plane-o"></i></router-link></li>
+            </ul>
+        </div>
+        <cyfooter/>
+    </div>
+</template>
+
+<script type="text/javascript">
+
+import './mine.scss'
+import $ from 'jquery';
+import cyfooter from '../cyfooter/cyfooter.vue';
+import http from '../../utils/httpClient.js'
+
+    export default{
+        data(){
+            return {
+                uname:'您还没有登录哦！',
+                uimg:'//temp/default.jpg',
+                dataset:[],
+                baseUrl:http.base_url
+            }
+        },
+        components:{
+            cyfooter
+        },
+        methods:{
+
+        },
+        mounted(){
+            // let x =window.sessionStorage.getItem('userID');
+            let uid = this.$route.params.id;
+
+            http.get('Mgetuser',{id:uid}).then((res)=>{
+                console.log(res);
+                if(res.data.status){
+                    this.uname=res.data.data[0].nickname;
+                    this.uimg=res.data.data[0].headImg;
+                }
+            })
+            $('.cyfooter ul li').eq(4).addClass('active');
+
+        }
+    }
+</script>

@@ -1,0 +1,34 @@
+import Vue from "vue"
+import VueRouter from "vue-router"
+
+Vue.use(VueRouter)
+
+import homeComponent from "../components/home/home.vue"
+
+// Marco添加
+import itemsComponent from '../components/items/items.vue'
+import sourceComponent from '../components/items/source/source.vue'
+import sourceDetail from '../components/items/source/sourceDetail/sourceDetail.vue'
+//光源add
+import MineComponent from '../components/mine/mine.vue'
+import PersonComponent from '../components/mine/person/person.vue'
+import LoginComponent from '../components/login/login.vue'
+import RegisterComponent from '../components/register/register.vue'
+
+const router = new VueRouter({
+    routes:[
+        {path:"/",name:"home",component:homeComponent},
+        {path:"/items",name:"items",component:itemsComponent,children:[
+            {path:"/items/source",name:"source",component:sourceComponent,children:[
+                {path:"/items/source/detail/:id",name:'sourceDetail',component:sourceDetail}
+            ]}
+        ]},
+        
+        {path:"/mine/:id",name:"mine",component:MineComponent},
+        {path:"/person",name:"person",component:PersonComponent},
+        {path:"/login",name:"login",component:LoginComponent},
+        {path:"/register",name:"register",component:RegisterComponent}
+    ]
+})
+
+export default router;

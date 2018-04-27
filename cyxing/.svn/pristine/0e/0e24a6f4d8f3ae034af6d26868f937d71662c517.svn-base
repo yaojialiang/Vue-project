@@ -1,0 +1,74 @@
+#T-mine{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    .T-header{//头部
+        height:1.2rem;
+        // background:pink;
+        padding:0 5%;
+        h3{
+            font-size:0.4rem;
+            text-align: center;
+            line-height:1.2rem;
+            margin-left:0.766667rem;
+            a{float:right;}
+        }
+    }
+    .T-main{
+        flex:1;
+        overflow-x:hidden;
+        .T-headPhoto{
+            height:2.0rem;
+            width:100%;
+            font-size:0.4rem;
+            background:#ccc;
+            line-height:2.0rem;
+            padding: 3% 5%;
+            a{
+                display: block;
+                width:100%;
+                height:100%;
+            }
+            p{
+                float:left;
+                height:0.8rem;
+                line-height:1.4rem;
+            }
+            img{
+                width:1.333333rem;
+                height:1.333333rem;
+                border:1px solid #000;
+                border-radius:50%;
+                float:left;
+                margin-right:0.4rem;
+                margin-top:0.1rem;
+            }
+            i{//向右箭头
+                float:right;
+                margin-top:0.4rem;
+            }
+            
+        }
+        ul{
+            padding:0 5%;
+            .T-li{
+                height:1.333333rem;
+                width:100%;
+                padding-left:0.4rem;
+                font-size:0.4rem;
+                line-height:1.333333rem;
+                border-bottom:1px solid #ccc;
+                a{
+                    display: block;
+                }
+                i{
+                    float:right;
+                    padding-top:0.4rem;
+                    font-size:0.5rem;
+                    padding-right:0.133333rem;
+                }
+            }
+        }
+        
+    }
+}

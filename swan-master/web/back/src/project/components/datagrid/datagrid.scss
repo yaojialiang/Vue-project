@@ -1,0 +1,64 @@
+
+.red{
+    background:#CD0000;
+    color:#fff;
+}
+.topso{
+    margin:20px 40px;
+    #so{
+        border:2px solid #ccc;
+        height:40px;
+        width:300px;
+        border-radius:5px;
+        text-indent:1em;
+    }
+    #search{
+        margin-left:10px;
+        width:45px;
+        height:45px;
+        border-radius:8px;
+        &:hover{
+            background:#58bc58;
+            color:#fff;
+        }
+    }
+}
+.go{
+    height:80px;
+    padding-top:25px;
+    padding-left:25px;
+}
+#into{
+    border:1px solid #ccc;
+    width:50px;
+}
+#goto{
+    background:#ccc;
+}
+.del{
+    border-radius:5px;
+    font-size:12px;
+    width:50px;
+    height:30px;
+
+}
+
+
+
+
+table tbody {
+display:block;
+height:400px;
+overflow-y:scroll;
+}
+
+table thead, tbody tr {
+display:table;
+width:100%;
+table-layout:fixed;
+}
+
+table thead {
+width: calc( 100% - 1em )
+}
+table thead th{ background:#ccc;}

@@ -1,0 +1,28 @@
+var db = require('../db');
+var apiResult = require('../utils/apiResult');
+const filter = require('../utils/filter');
+var async = require('async');
+
+module.exports={
+    reg(app){
+        // 获取资料库
+        app.get('/getSource',(req,res)=>{
+            let type = req.query.type;
+            let id = req.query.id;
+            let page = req.query.page;
+            let limit = req.query.limit;
+            var sql = 'select * from source';
+            if(type) var sql = `select * from ${type}`;
+            if(id) sql += ` where id=${id}`;
+            if(page && limit){
+                var qty = page*limit;
+                sql += ` limit 0,${qty}`;
+            }
+            db.DBHelper.compile(sql,result=>{
+                res.send(apiResult(result.length>0,result));
+            })
+        })
+        // 获取项目
+        // 
+    }
+}

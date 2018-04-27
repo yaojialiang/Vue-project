@@ -1,0 +1,67 @@
+#T-person{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    font-size:0.4rem;
+    .T-person-head{
+        height:1.2rem;
+        line-height:1.2rem;
+        text-align: center;
+        padding: 0 5%;
+        // background:pink;
+        h3{
+            font-size:0.426667rem;
+            // font-weight:normal
+        }
+        i{
+            float:left;
+            padding-top:0.3rem;
+            font-size:0.6rem
+        }
+        .fa-floppy-o{
+            float:right;
+        }
+    }
+    .T-person-main{
+        ul{
+            padding:0 5%;
+            li{
+                height:1.333333rem;
+                line-height:1.333333rem;
+                border-bottom:1px solid #000;
+                input{
+                    margin-left:0.133333rem;
+                    height:80%;
+                    width:80%;
+                    border:0px;
+                    font-size:0.45rem;
+                }
+                label{
+                    display: inline-block;
+                }
+                select{
+                    width:2.3rem;
+                    height:50%;
+                    font-size:0.426667rem;
+                    option{
+                        font-size:12px;
+                        width:0.8rem;
+                    }
+                }
+            }//头像部分
+            .person-photo{
+                height:2.666667rem;
+                line-height: 2.666667rem;
+                background:#58bc58;
+                padding-top:0.41rem;
+                img{
+                    width:1.866667rem;
+                    height:1.866667rem;
+                    border:1px solid #ccc;
+                    border-radius:50%;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+}

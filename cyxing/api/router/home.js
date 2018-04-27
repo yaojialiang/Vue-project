@@ -1,0 +1,28 @@
+var db = require('../db');
+var apiResult = require('../utils/apiResult');
+var filter = require('../utils/filter');
+
+module.exports={
+    reg(app){
+        // 获取单个模块列表
+        app.get('/getOneList',(req,res)=>{
+            let type = req.query.type;
+            let limit = req.query.limit;
+            let id = req.query.id;
+
+            var sql =`select * from ${type}`;
+            if(id) sql += ` where id=${id}`;
+            if(limit) sql += ` limit 0,${limit}`;
+            db.DBHelper.compile(sql,result=>{
+                res.send(apiResult(result.length>0,result));
+            })
+        })
+        // 获取所有模块列表
+        app.get('/getAllList',(req,res)=>{
+            var sql = `select * from busiStar; select * from master; select * from book; select * from matchs; select * from cynews;`;
+            db.DBHelper.compile(sql,result=>{
+                res.send(apiResult(result.length>0,{busiStar:result[0],master:result[1],book:result[2],matchs:result[3],cynews:result[4]}));
+            })
+        })
+    }
+}

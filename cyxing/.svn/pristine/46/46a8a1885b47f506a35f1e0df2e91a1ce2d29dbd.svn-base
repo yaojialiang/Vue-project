@@ -1,0 +1,22 @@
+https://cnodejs.org/api
+
+允许远程连接数据库：
+1、打开mysql控制台
+2、use mysql;
+3、update user set host="%" where user="root";
+4、flush privileges;
+
+
+SVN合作者帐号：
+顾兴胜：xingsheng  * x12345
+唐光源：guangyuan  * g12345
+罗  清：luoqing	   * l12345
+郑奋超：fenchao    * f12345
+姚嘉樑：jialiang   * j12345
+
+注意事项：
+1、看base.css里的代码，写样式时合理运用；
+2、在每个组件的<template/>里设一个根元素，元素加上id，id名加上自己名字的标识，样式文件最好用.scss，这样可以把属于你这个组件的样式都写在你的根元素层里，这样可以有效防止组件之间的样式冲突。
+3、spinner已经在App.vue引入，其状态也已经放到了store里，不需要再在每个组件引入spinner,只需在ajax请求时改变全局store里对应的状态值就行。
+4、每个主页面的footer导航块已经单独写在cyfooter组件中，各位直接在自己的组件中引入即可，不用自己去写。
+5、本APP的主色调：#0ff;

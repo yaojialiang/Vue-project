@@ -1,0 +1,65 @@
+<template>
+    <div id='personaldynamic'>
+        <header>
+            <div class='left'><i class='el-icon-arrow-left' @click="back()"></i></div>
+            <div class='center'>个人详情</div>
+            <div class='right'><i class='el-icon-search'></i></div>
+        </header>
+        <div class='main'>
+            <div class='self'>
+                <div class='left'><img :src="baseUrl+guest.headImg"/></div>
+                <div class='right'>
+                    <div class='name'>{{guest.fullname}}</div>
+                    <div class='newmsg'>{{guest.manifesto}}</div>
+                </div>
+            </div>
+
+            <div class='nav'>
+                <router-link to='/personaldynamic/dynamic'>个人动态</router-link>
+                <router-link to='/personaldynamic/project'>个人项目</router-link> 
+            </div>
+
+        
+            <router-view :guest="guest"></router-view>
+        </div>
+        
+    </div>
+    
+</template>
+
+<script type='text/javascript'>
+    import './personaldynamic.scss'
+    import http from '../../utils/httpClient.js'
+    export default{
+        mounted : function(){
+            //请求当前用户的信息
+            
+            http.get('Mgetuser',{id:this.$route.params.guest*1}).then((res)=>{  
+                this.guest = res.data.data[0];
+                http.get('Mgetuser',{id:this.$route.params.master*1}).then((res)=>{
+                    this.master = res.data.data[0];
+                    this.$router.push({ name: 'dynamic'})
+                })
+            })
+
+
+        },
+
+        data : function(){
+            return {
+
+                master:{},
+                guest:{},
+                dataset:[],
+                currentusermsg:{},
+                baseUrl:http.base_url
+            }
+        },
+
+        methods:{
+            back(){
+                this.$router.push({ name: 'chatwindow', params: { master: this.master.id,guest:this.guest.id }})
+            }
+        }
+    }
+</script>
